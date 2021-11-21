@@ -1,0 +1,44 @@
+title: Contact
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.heading:
+              type: text
+              style: vertical
+              label: Heading
+
+            header.blockquote:
+              type: textarea
+              style: vertical
+              label: Blockquote
+
+            header.image:
+              label: 'Image'
+              type: file
+              style: vertical
+              destination: "@self"
+              multiple: false
+              random_name: false
+              limit: 1
+              filesize: 5
+              accept:
+                - image/*
+
+        options:
+          type: false
+        advanced:
+          type: false

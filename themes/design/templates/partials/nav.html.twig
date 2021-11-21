@@ -1,0 +1,48 @@
+{% import 'macros/macros.html.twig' as macros %}
+
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close">
+      <span class="icofont-close js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<div class="container">
+  <nav class="site-nav">
+    <div class="logo">
+      <a href="{{ home_url }}" title="{{ site.title }}">
+        {% if theme.logo_src %}{% set logo = theme.logo_src %}
+        {% elseif theme.logo_url %}{% set logo = theme.logo_url %}
+        {% else %}{% set logo = null %}{% endif %}
+        {% if logo %}
+        <figure>
+          <img src="{{ home_url }}{{ logo|first.path }}" alt="{{ site.title }}" style="width: 150px;" />
+        </figure>
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </a>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-12 col-lg-12 site-navigation text-center">
+        <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu">
+          {{ macros.nav_loop(pages) }}
+        </ul>
+
+        <!-- main menu end-->
+        {% if (theme.cta_url and theme.cta_text) %}
+          <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right menu-absolute pt-1">
+            <li class="cta-button"><a href="{{ theme.cta_url }}">{{ theme.cta_text }}</a></li>
+          </ul>
+        {% endif %}
+        <!-- menu-trigger start-->
+
+        <a href="#" class="burger ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+          <span></span>
+        </a>
+      </div>
+    </div>  
+  </nav> <!-- END nav -->
+</div> <!-- END container -->

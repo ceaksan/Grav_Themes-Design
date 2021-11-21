@@ -1,0 +1,18 @@
+{% if page.header.image and page.header.blockquote %}
+<div class="testimonial-wrap h-100">
+  <div class="testimonial align-self-center">
+    {% if page.header.image %}<img src="{{ page.header.image|first.path }}" alt="{{ page.title }}" class="img-fluid" />{% endif %}
+    {% if page.header.blockquote %}
+    <blockquote class="mb-5">
+      <p>{{ page.header.blockquote }}</p>
+    </blockquote>
+    {#
+      <div class="author text-left">
+        <strong class="d-block">Daniella Wood</strong>
+        <span>founder @ Colorlib</span>
+      </div> 
+    #}
+    {% endif %}
+  </div>
+</div>
+{% endif %}

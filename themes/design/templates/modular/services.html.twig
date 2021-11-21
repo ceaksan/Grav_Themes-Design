@@ -1,0 +1,49 @@
+<div class="services-section">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          
+          {% if page.title or page.header.heading %}
+          <div class="section-title mb-3" data-aos="fade-up" data-aos-delay="0">
+            {% if page.title %}<strong class="subtitle">{{ page.title }}</strong>{% endif %}
+            {% if page.header.heading %}<h2 class="heading">{{ page.header.heading }}</h2>{% endif %}
+          </div>
+          {% endif %}
+
+          {% if page.header.description %}
+          <p data-aos="fade-up" data-aos-delay="100">{{ page.header.description }}</p>
+          {% endif %}
+          
+          {% if page.header.list %}
+          <ul class="list-check list-unstyled mb-5" data-aos="fade-up" data-aos-delay="200">
+          {% for item in page.header.list %}
+            <li>{{ item.text }}</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+
+          {% if page.header.cta %}
+          <p data-aos="fade-up" data-aos-delay="300">
+            {% for button in page.header.cta %}
+            <a href="{{ button.link }}" class="btn {{ (button.class) ? button.class : 'btn-primary' }}">{{ button.text }}</a>
+            {% endfor %}
+          </p>
+          {% endif %}
+
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
+          {% if page.media.images %}
+            {% set thumbUrl = page.media.images|first.url %}
+          {% else %}
+            {% set thumbUrl = url('theme://assets/images/hero_1.jpg') %}
+          {% endif %}
+          <figure class="img-wrap-2">
+            <img src="{{ thumbUrl }}" alt="{{ page.title }}" class="img-fluid" />
+            <div class="dotted"></div>
+          </figure>
+          
+        </div>
+      </div>
+    </div>
+  </div>

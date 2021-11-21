@@ -1,0 +1,50 @@
+title: Testimonials
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.testimonials:
+              name: testimonials
+              type: list
+              style: vertical
+              label: Testimonials
+              limit: 10
+              fields:
+                .person:
+                  type: text
+                  label: Person
+                .title:
+                  type: text
+                  label: Title
+                .description:
+                  type: text
+                  label: Description
+                .image:
+                  type: file
+                  label: Image
+                  style: vertical
+                  destination: "@self"
+                  multiple: false
+                  random_name: false
+                  limit: 1
+                  filesize: 5
+                  accept:
+                    - image/*
+
+        options:
+          type: false
+        advanced:
+          type: false

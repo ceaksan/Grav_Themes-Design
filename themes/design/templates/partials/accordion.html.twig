@@ -1,0 +1,21 @@
+<div class="custom-block" data-aos="fade-up">
+          <h2 class="section-title">{{ page.header.heading }}</h2>
+          <div class="custom-accordion" id="accordion_1">
+
+            {% for item in page.header.accordion %}
+            <div class="accordion-item">
+              <h2 class="mb-0">
+                <button class="btn btn-link {% if loop.index > 1 %}collapsed {% endif %}" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.index == 1 %}true{% endif %}" aria-controls="collapse{{ loop.index }}">
+                  {{ item.title }}
+                </button>
+              </h2>
+              <div id="collapse{{ loop.index }}" class="collapse {% if loop.index == 1 %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-parent="#accordion_1">
+                <div class="accordion-body">
+                  {{ item.description|raw }}
+                </div>
+              </div>
+            </div> <!-- .accordion-item -->
+            {% endfor %}
+
+          </div>
+        </div> <!-- END .custom-block -->

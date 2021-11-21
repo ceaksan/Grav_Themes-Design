@@ -1,0 +1,27 @@
+<div class="testimonial-section" data-aos="fade-up" data-aos-delay="0">
+    <div class="container">
+      <div class="owl-single owl-carousel">
+
+        {% for tst in page.header.testimonials %}
+        <div class="testimonial mx-auto">
+          <figure class="img-wrap">
+            {% if tst.image|first.path %}
+              {% set thumbUrl = tst.image|first.path %}
+            {% else %}
+              {% set thumbUrl = url('theme://assets/images/person_1.jpg') %}
+            {% endif %}
+            <img src="{{ thumbUrl }}" alt="{{ tst.person }}" class="img-fluid" />
+          </figure>    
+          <blockquote>
+            <p>{{ tst.description|raw }}</p>
+          </blockquote>
+          <div class="author">
+            <h3 class="name">{{ tst.person }}</h3>
+            <p>{{ tst.title }}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>

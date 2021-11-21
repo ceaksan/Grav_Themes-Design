@@ -1,0 +1,98 @@
+  <div class="site-footer">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4">
+          <div class="widget">
+            {% if theme.name or site.title %}<h3>{{ theme.name ?: site.title }}</h3>{% endif %}
+            {% if theme.location %}<p>{{ theme.location }}</p>{% endif %}
+          </div>
+          <div class="widget">
+            <h3>{{ theme.heading }}</h3>
+            <ul class="social list-unstyled">
+              {% if theme.facebook %}<li><a href="{{ theme.facebook }}" target="_blank" rel="noopener" title="Facebook"><span class="icon-facebook"></span></a></li>{% endif %}
+              {% if theme.twitter %}<li><a href="{{ theme.twitter }}" target="_blank" rel="noopener" title="Twitter"><span class="icon-twitter"></span></a></li>{% endif %}
+              {% if theme.instagram %}<li><a href="{{ theme.instagram }}" target="_blank" rel="noopener" title="Instagram"><span class="icon-instagram"></span></a></li>{% endif %}
+              {% if theme.dribble %}<li><a href="{{ theme.dribble }}" target="_blank" rel="noopener" title="Dribble"><span class="icon-dribbble"></span></a></li>{% endif %}
+              {% if theme.linkedin %}<li><a href="{{ theme.linkedin }}" target="_blank" rel="noopener" title="Linkedin"><span class="icon-linkedin"></span></a></li>{% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            {% if theme.links_heading %}
+            <div class="col-12">
+              <div class="widget">
+                <h3>{{ theme.links_heading }}</h3>
+              </div>
+            </div>
+            {% endif %}
+            {% if theme.links %}
+            <div class="col-6 col-sm-6 col-md-4">
+              <div class="widget">
+                <ul class="links list-unstyled">
+                  {% for link in theme.links|slice(0, 4) %}
+                     <li><a href="{{ link.link_url }}" title="{{ link.link_text }}">{{ link.link_text }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4">
+              <div class="widget">
+                <ul class="links list-unstyled">
+                  {% for link in theme.links|slice(4, 4) %}
+                     <li><a href="{{ link.link_url }}" title="{{ link.link_text }}">{{ link.link_text }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4">
+              <div class="widget">
+                <ul class="links list-unstyled">
+                  {% for link in theme.links|slice(8, 4) %}
+                     <li><a href="{{ link.link_url }}" title="{{ link.link_text }}">{{ link.link_text }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% if (theme.credit) %}
+      <div class="row justify-content-center text-center copyright">
+        <div class="col-md-8">
+          <p>{{ theme.credit|raw }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    
+
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    
+		{% block footer %}
+			{% block body_js %}
+				<!-- scripts-->
+				{% do assets.addJs('theme://assets/js/jquery-3.4.1.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/popper.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/bootstrap.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/owl.carousel.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/aos.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/jquery.animateNumber.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/jquery.waypoints.min.js', { group: 'body_js' }) %}
+				{% do assets.addJs('theme://assets/js/jquery.fancybox.min.js', { group: 'body_js' }) %}
+        {% do assets.addJs('theme://assets/js/custom.js', { group: 'body_js' }) %}
+        {% do assets.addJs('theme://assets/js/timeline.js', { group: 'body_js' }) %}
+				{{ assets.js('body_js')|raw }}
+			{% endblock %}
+		{% endblock %}
+
+</body>
+</html>

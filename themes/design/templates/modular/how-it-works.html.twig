@@ -1,0 +1,42 @@
+<div class="how-it-works">
+    <div class="container">
+
+      {% if page.title or page.header.heading %}
+      <div class="row justify-content-center">
+        <div class="col-lg-7 section-title text-center mb-5">
+          {% if page.title %}<strong class="subtitle" data-aos="fade-up" data-aos-delay="0">{{ page.title }}</strong>{% endif %}
+          {% if page.header.heading %}<h2 class="heading" data-aos="fade-up" data-aos-delay="100">{{ page.header.heading }}</h2>{% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.header.steps %}
+      <div class="row gutter-v1 align-items-center">
+
+        {% for step in page.header.steps %}
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <div class="step">
+            {% if step.icon %}<div class="mb-4 icon-wrap"><span class="{{ step.icon }}"></span></div>{% endif %}
+            {% if step.title %}<h3>{{ step.title }}</h3>{% endif %}
+            {% if step.description %}<p>{{ step.description|raw }}</p>{% endif %}
+            {% if loop.last < page.header.steps|length  %}
+            <div class="line">
+              <svg width="121px" height="59px" viewBox="0 0 121 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="3">
+                  <g id="Group" transform="translate(1.000000, 0.000000)" stroke="#979797" stroke-width="2">
+                    <path d="M0.2109375,12.8632812 C20.0091146,26.8632812 39.8072917,33.8632812 59.6054687,33.8632812 C79.4036458,33.8632812 99.2018229,26.8632812 119,12.8632812" id="Path-2"></path>
+                    <polyline id="Path-3" points="75.1103516 0.977539062 119.116211 13.3417969 105.357422 60.8583984"></polyline>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      {% endif %}
+
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+<div id="post-{{loop.index}}" class="{{ col }}">
+    <article class="card is-shadowless is-radiusless is-transparent">
+        <div class="title is-size-4">
+            <a href="{{ page.url }}" class="has-text-dark highlight is-dark" title="{{ page.title }}">{{ page.title }}</a>
+            {% for cat in page.taxonomy.category|slice(0,1) %}
+                <a href="{{ base_url }}/posts/category:{{ cat }}" title="{{ cat }}"  class="tag has-text-grey has-text-weight-normal">{{ cat }}</a>
+            {% endfor %}
+            <div class="tag is-transparent">
+                <div class="field has-addons">
+                    {% if page.header.podcast.enabled == 1 %}
+                    <p class="control"><span class="is-borderless px-2" title="Podcast yayını içerir"><ion-icon name="mic-outline"></ion-icon> <span class="is-hidden-tablet"> Podcast</span></span></p>
+                    {% endif %}
+                    {% if page.header.video.enabled == 1 %}
+                    <p class="control"><span class="is-borderless px-2" title="Açıklama videosu içerir"><ion-icon name="play-circle-outline"></ion-icon> <span class="is-hidden-tablet"> Video</span></span></p>
+                    {% endif %}
+                    {% if page.header.code.enabled == 1 %}
+                    <p class="control"><span class="is-borderless px-2" title="Kod örneği içerir"><ion-icon name="code-slash-outline"></ion-icon> <span class="is-hidden-tablet"> Kod</span></span></p>
+                    {% endif %}
+                    {% if page.header.limited.enabled == 1 %}
+                    <p class="control"><span class="is-borderless px-2" title="Özel içerik"><ion-icon name="lock-closed-outline"></ion-icon> <span class="is-hidden-tablet"> Özel İçerik</span></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </article>
+</div>

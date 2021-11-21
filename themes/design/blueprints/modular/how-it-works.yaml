@@ -1,0 +1,44 @@
+title: 'How it works'
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.heading:
+              type: text
+              style: vertical
+              label: Heading
+
+            header.steps:
+              name: steps
+              type: list
+              style: vertical
+              label: Steps
+              limit: 9
+              fields:
+                .icon:
+                  type: text
+                  label: Icon
+                .title:
+                  type: text
+                  label: Title
+                .description:
+                  type: text
+                  label: Description
+
+        options:
+          type: false
+        advanced:
+          type: false

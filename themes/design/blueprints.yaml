@@ -1,0 +1,153 @@
+name: design
+version: 1.0.0
+description: "design theme"
+
+form:
+  validation: strict
+  fields:
+    # enabled:
+    #   type: toggle
+    #   label: PLUGIN_ADMIN.PLUGIN_STATUS
+    #   help: THEMES.design.PLUGIN_STATUS_HELP
+    #   highlight: 1
+    #   default: 1
+    #   options:
+    #     1: PLUGIN_ADMIN.ENABLED
+    #     0: PLUGIN_ADMIN.DISABLED
+    #   validate:
+    #     type: bool
+
+    # cdn:
+    #   type: toggle
+    #   label: THEMES.design.CDN
+    #   help: THEMES.design.CDN_HELP
+    #   highlight: 1
+    #   default: 1
+    #   options:
+    #     1: PLUGIN_ADMIN.YES
+    #     0: PLUGIN_ADMIN.NO
+    #   validate:
+    #     type: bool
+
+    # logo_url:
+    #   type: text
+    #   label: THEMES.design.LOGO_URL
+    #   placeholder: THEMES.design.LOGO_URL_PLACEHOLDER
+
+    # favicon_url:
+    #   type: text
+    #   label: THEMES.design.FAVICON_URL
+    #   placeholder: THEMES.design.FAVICON_URL_PLACEHOLDER
+
+    logo:
+      type: fieldset
+      title: Logo
+      collapsed: true
+      collapsible: true
+      fields:
+        logo_src:
+          type: file
+          label: File
+          size: large
+          destination: 'theme://assets/images'
+          multiple: false
+          markdown: true
+          description: Will be used instead of default logo `theme://assets/images/grav-logo.svg`
+          accept:
+            - image/*
+        logo_url:
+          type: text
+          label: URL
+          placeholder: https://...
+        # logo_footer:
+        #   type: text
+        #   label: Footer Logo Path
+        #   placeholder: https://...
+    cta:
+      type: fieldset
+      title: CTA Button
+      collapsed: true
+      collapsible: true
+      fields:
+        cta_text:
+          type: text
+          label: Menu CTA Button Text
+        cta_url:
+          type: text
+          label: Menu CTA Button URL
+    social:
+      type: fieldset
+      title: Social Media Profiles
+      collapsed: true
+      collapsible: true
+      fields:
+        heading:
+          type: text
+          label: Title
+          placeholder: Connect with us
+        facebook:
+          type: text
+          label: Facebook
+          placeholder: https://...
+        twitter:
+          type: text
+          label: Twitter
+          placeholder: https://...
+        youtube:
+          type: text
+          label: Youtube
+          placeholder: https://...
+        instagram:
+          type: text
+          label: Instagram
+          placeholder: https://...
+        linkedin:
+          type: text
+          label: Linkedin
+          placeholder: https://...
+        dribbble:
+          type: text
+          label: Dribbble
+          placeholder: https://...
+    urls:
+      type: fieldset
+      title: Navigations
+      collapsed: true
+      collapsible: true
+      fields:
+          links_heading:
+            type: text
+            label: Title
+            placeholder: Navigations
+          links:
+            type: list
+            label: URLs
+            fields:
+              .link_text:
+                type: text
+                label: Text
+              .link_url:
+                type: text
+                label: URL
+    company:
+      type: fieldset
+      title: Company Informations
+      collapsed: true
+      collapsible: true
+      fields:
+        name:
+          type: text
+          label: Company Name
+        location:
+          type: textarea
+          label: Detail
+        credit:
+          type: textarea
+          label: Credit
+
+simplesearch:
+  route: /search
+  template: simplesearch_results
+  filters:
+    category: blog
+  filter_combinator: and

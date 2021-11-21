@@ -1,0 +1,39 @@
+title: Achievements
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.achievements:
+              name: achievements
+              type: list
+              style: vertical
+              label: Achievements
+              limit: 12
+              fields:
+                .info:
+                  type: text
+                  label: Info
+                .title:
+                  type: text
+                  label: Title
+                .description:
+                  type: text
+                  label: Description
+
+        options:
+          type: false
+        advanced:
+          type: false

@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+{% block body %}
+
+    {% block body_content %}
+            {% include 'partials/simplesearch_searchbox.html.twig' %}
+            
+            {% for page in search_results %}
+                {% if page.visible %}
+                    {% include 'partials/simplesearch_item.html.twig' with { 'col': 'post column is-12', 'page': page, 'truncate':true } %}
+                {% endif %}
+            {% endfor %}
+
+            {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                {% include 'partials/pagination.html.twig' with { 'base_url':page.url, 'pagination': collection.params.pagination } %}
+            {% endif %}
+
+    {% endblock %}
+{% endblock %}

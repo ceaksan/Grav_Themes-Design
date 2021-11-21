@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% block head %}
+    {% block head_meta %}
+			<meta charset="UTF-8" />
+			<meta name="description" content="description" />
+			<meta name="keywords" content="keywords" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+			<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% endblock %}
+
+    {% block head_title %}
+      <title>{% if page.header.title and (page.url != base_url or 'error' == page.template) %} {{ page.header.title }} | {{ site.title }}{% endif %}</title>
+    {% endblock %}
+
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+
+		{%- block assets deferred -%}
+			{{ assets.css()|raw }}
+			{{ assets.js()|raw }}
+		{%- endblock -%}
+
+    {%- block head_css -%}
+			<!-- styles -->
+			{% do assets.addCss('theme://assets/css/bootstrap.min.css') %}
+			{% do assets.addCss('theme://assets/css/owl.carousel.min.css') %}
+			{% do assets.addCss('theme://assets/css/owl.theme.default.min.css') %}
+			{% do assets.addCss('theme://assets/css/jquery.fancybox.min.css') %}
+
+			{% do assets.addCss('theme://assets/fonts/icomoon/style.css') %}
+			{% do assets.addCss('theme://assets/fonts/flaticon/font/flaticon.css') %}
+			{% do assets.addCss('theme://assets/css/aos.css') %}
+			{% do assets.addCss('theme://assets/css/style.css') %} 
+			{% do assets.addCss('theme://assets/css/timeline.css') %}
+		{%- endblock -%}
+
+    {% block head_js %}
+    <!-- scripts -->
+    {% endblock %}
+
+  {% endblock %}
+</head>
+<body>
+
+{% include 'partials/nav.html.twig' %}

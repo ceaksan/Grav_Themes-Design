@@ -1,0 +1,68 @@
+title: 'Media'
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.video_title:
+              type: text
+              style: vertical
+              label: 'Video Title'
+
+            header.video_url:
+              type: textarea
+              style: vertical
+              label: 'Video URL'
+
+            header.video_image:
+              label: 'Video Image'
+              type: file
+              style: vertical
+              destination: "@self"
+              multiple: false
+              random_name: false
+              limit: 1
+              filesize: 5
+              accept:
+                - image/*
+
+            header.gallery_title:
+              type: text
+              style: vertical
+              label: 'Gallery Title'
+
+            header.gallery:
+              name: gallery
+              type: list
+              style: vertical
+              label: Gallery
+              limit: 9
+              fields:
+                .image:
+                  type: file
+                  label: Image
+                  style: vertical
+                  destination: "@self"
+                  multiple: false
+                  random_name: false
+                  limit: 1
+                  filesize: 5
+                  accept:
+                    - image/*
+
+        options:
+          type: false
+        advanced:
+          type: false

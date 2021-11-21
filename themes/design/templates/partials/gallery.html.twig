@@ -1,0 +1,14 @@
+{% if page.header.gallery %}
+<div class="custom-block" data-aos="fade-up">
+  <h2 class="section-title">{{ page.header.gallery_title }}</h2>
+  <div class="row gutter-1 gallery">
+    {% for img in page.header.gallery %}
+    <div class="col-4">
+      <a href="{{ img.image|first.path }}" class="gal-item" data-fancybox="gal">
+        <img src="{{ img.image|first.path }}" alt="{{ page.title }}" class="img-fluid" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div> <!-- END .custom-block -->
+{% endif %}

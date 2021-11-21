@@ -1,0 +1,5 @@
+enabled: false
+default_list_style: null
+pagination:
+  per_page: null
+custom_permissions: null

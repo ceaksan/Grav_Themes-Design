@@ -1,0 +1,14 @@
+# Global theme configurations
+enabled: true # Set to false to disable this plugin completely
+
+default_lang: en
+
+dropdown:
+  enabled: true
+
+simplesearch:
+  route: /search
+  template: simplesearch_results
+  filters:
+    category: blog
+  filter_combinator: and

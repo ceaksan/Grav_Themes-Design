@@ -1,0 +1,17 @@
+{% if page.header.achievements %}
+<div class="achievements">
+  <div class="container">
+    <div class="row">
+      {% for ach in page.header.achievements %}
+        <div class="col-md-6 mb-4 mb-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <div class="numbers">
+            {% if ach.info %}<strong class="number">{{ ach.info }}</strong>{% endif %}
+            {% if ach.title %}<h4>{{ ach.title }}</h4>{% endif %}
+            {% if ach.description %}<p>{{ ach.description|raw }}</p>{% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

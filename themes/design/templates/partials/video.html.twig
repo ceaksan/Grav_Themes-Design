@@ -1,0 +1,9 @@
+<div class="custom-block" data-aos="fade-up">
+  <h2 class="section-title">{{ page.header.video_title }}</h2>
+  <a href="{{ page.header.video_url }}" data-fancybox class="video-wrap">
+    <span class="play-wrap"><span class="icon-play"></span></span>
+    <figure>
+      <img src="{{ page.header.video_image|first.path }}" alt="{{ page.header.video_title }}" class="img-fluid rounded" />
+    </figure>
+  </a>
+</div> <!-- END .custom-block -->

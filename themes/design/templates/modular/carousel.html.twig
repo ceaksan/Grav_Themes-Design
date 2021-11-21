@@ -1,0 +1,5 @@
+<div class="owl-single dots-absolute owl-carousel">
+  {% for img in page.media.images %}
+    <img src="{{ img.url }}" alt="{{ page.title }}" class="img-fluid" />
+  {% endfor %}
+</div>

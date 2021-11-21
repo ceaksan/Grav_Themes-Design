@@ -1,0 +1,16 @@
+title: Post
+'@extends':
+    type: default
+    context: blueprints://post
+
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+
+        options:
+          type: false
+        advanced:
+          type: false

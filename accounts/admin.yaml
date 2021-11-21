@@ -1,0 +1,11 @@
+state: enabled
+email: c.aksan@gmail.com
+fullname: 'Ceyhun Aksan'
+title: Administrator
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$TcYtlLvCPTI4o3stgjPcfuSTNSqiugo0BTC97Hg3ImN05pWBdxUUG

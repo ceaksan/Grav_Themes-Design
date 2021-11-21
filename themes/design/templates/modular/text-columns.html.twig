@@ -1,0 +1,15 @@
+  <div class="py-5">
+    <div class="container">
+
+      {% for row in page.header.rows %}
+      <div class="row {{ row.class }}">
+        {% for col in row.cols %}
+          <div class="col {{ col.class }}">
+            {{ col.text | markdown }}
+          </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>

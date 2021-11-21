@@ -1,0 +1,32 @@
+              <div class="dropdown is-right">
+                <div class="dropdown-trigger">
+                  <button class="button is-borderless is-transparent" aria-haspopup="true" aria-controls="dropdown-menu3">
+                    <a class="has-text-blue-light" onclick="search()">
+                      <ion-icon class="icon is-small" name="search"></ion-icon>
+                    </a>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-search" role="menu">
+                  <div class="dropdown-content px-3">
+                    <form data-simplesearch-form>
+                      <div class="field">
+                        <p class="control">
+                          <input
+                              name="searchfield"
+                              class="search-input input has-text-blue"
+                              aria-label="search"
+                              type="text"
+                              {% if min_chars > 0 %} data-min="{{- min_chars -}}" {% endif %}
+                              required
+                              placeholder="{{"PLUGIN_SIMPLESEARCH.SEARCH_PLACEHOLDER"|t}}"
+                              value="{{ query|e }}"
+                              data-search-invalid="{{ "PLUGIN_SIMPLESEARCH.SEARCH_FIELD_MINIMUM_CHARACTERS"|t(min_chars)|raw }}"
+                              data-search-separator="{{ config.system.param_sep }}"
+                              data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route == '@self' ? '' : (config.plugins.simplesearch.route == '/' ? '' : config.plugins.simplesearch.route) }}/query"
+                          />
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>

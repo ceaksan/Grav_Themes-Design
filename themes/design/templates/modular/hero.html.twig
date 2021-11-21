@@ -1,0 +1,62 @@
+<div class="hero">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+
+        <div class="{{ (page.header.enabled == 1) ? 'col-lg-5' : page.header.body_classes }} mb-5 mb-lg-0">
+
+          <div class="mb-5">
+            {% if page.title %}<h1 class="mb-4" data-aos="fade-up">{{ page.title }}</h1>{% endif %}
+            {% if page.content %}<p class="mb-4" data-aos="fade-up" data-aos-delay="100">{{ page.content|raw }}</p>{% endif %}
+            {% if page.header.cta %}
+            <p data-aos="fade-up" data-aos-delay="200">
+              {% for btn in page.header.cta %}
+                <a href="{{ btn.link }}" class="btn {{ (btn.class) ? btn.class : 'btn-primary' }}">{{ btn.text }}</a>
+              {% endfor %}
+            </p>
+            {% endif %}
+          </div>
+
+          {% if page.header.features %}
+          <div class="row gutter-v1">
+            {% for ftr in page.header.features %}
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="0">
+              <div class="feature">
+                {% if ftr.icon %}<div class="mb-4 icon-wrap"><span class="{{ ftr.icon }}"></span></div>{% endif %}
+                {% if ftr.title %}<h3>{{ ftr.title }}</h3>{% endif %}
+                {% if ftr.description %}<p>{{ ftr.description|raw }}</p>{% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div>
+
+      {% if page.header.enabled == 1 %}
+        <div class="col-lg-6">
+          <div class="bg"></div>
+          {% if page.media.images %}
+            {% set thumbUrl = page.media.images|first.url %}
+          {% else %}
+            {% set thumbUrl = url('theme://assets/images/hero_2.jpg') %}
+          {% endif %}
+          <figure class="image is-fullwidth mx-0">
+            <img src="{{ thumbUrl }}" alt="{{ page.title }}" class="img-fluid" data-aos="fade-up" />
+            {% if page.header.blockquote %}
+            <div class="quote" data-aos="fade-left" data-aos-delay="100">
+              <blockquote>{{ page.header.blockquote }}</blockquote>
+              {#
+              <div class="author">
+                <strong class="d-block">Daniella Wood</strong>
+                <span>founder @ Colorlib</span>
+              </div> 
+              #}
+            </div>
+            {% endif %}
+          </figure>
+        </div>
+      {% endif %}
+
+      </div>
+    </div>
+  </div>

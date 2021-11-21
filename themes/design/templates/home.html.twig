@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+  {% block head_css %}
+		{{ parent() }}
+  {% endblock %}
+
+  {% block body %}
+    {% block body_content %}
+
+      {% for module in page.collection() %}
+          {{ module.content|raw }}
+      {% endfor %}
+      
+    {% endblock %}
+  {% endblock %}

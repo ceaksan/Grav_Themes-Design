@@ -1,0 +1,39 @@
+<div class="blog-entries-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 section-title text-center mb-5">
+        <strong class="subtitle" data-aos="fade-up" data-aos-delay="0">{{ page.title }}</strong>
+        <h2 class="heading" data-aos="fade-up" data-aos-delay="100">{{ page.header.heading }}</h2>
+        <p>{{ page.header.description|raw }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+    {%
+      set collection = page.collection({
+        items: {
+          '@page.children': '/blog'
+        },
+        'limit': page.header.count,
+        'order': {
+          'by': 'date',
+          'dir': 'desc'
+        },
+        'published': true,
+        'visible': true
+      })
+    %}
+
+    {% for p in collection %}
+      <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg" data-aos="fade-up" data-aos-delay="0">
+        <div class="post-entry">
+          <time class="date" datetime="{{ p.date|date("d-m-Y") }}">{{ p.date|date("d-m-Y") }}</time>
+          <h3><a href="{{ p.url|e }}">{{ p.title|e }}</a></h3>
+          <p>{{ p.summary()|raw }}</p>
+        </div>
+      </div>
+    {% endfor %}
+
+    </div>
+  </div>
+</div>

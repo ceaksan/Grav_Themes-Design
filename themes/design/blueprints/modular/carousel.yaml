@@ -1,0 +1,20 @@
+title: 'Other'
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+
+        options:
+          type: false
+        advanced:
+          type: false

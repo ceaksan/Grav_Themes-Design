@@ -1,0 +1,46 @@
+title: Services
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            header.heading:
+              type: text
+              label: Heading
+
+            header.description:
+              type: textarea
+              label: Description
+
+            header.list:
+              name: list
+              type: list
+              label: Items
+              limit: 9
+              fields:
+                .text:
+                  type: text
+                  label: Text
+
+            header.cta:
+              name: cta
+              type: list
+              label: Buttons
+              limit: 3
+              fields:
+                .text:
+                  type: text
+                  label: Text
+                .link:
+                  type: text
+                  label: Link
+                .class:
+                  type: text
+                  label: Class(es)

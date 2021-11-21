@@ -1,0 +1,67 @@
+title: Hero
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+            header.enabled:
+              type: toggle
+              style: vertical
+              label: Photo Section
+              highlight: 1
+              default: 1
+              options:
+                  1: Enabled
+                  0: Disabled
+              validate:
+                  type: bool
+            header.blockquote:
+              name: blockquote
+              type: textarea
+              style: vertical
+              label: Blockquote
+
+            header.cta:
+              name: buttons
+              type: list
+              style: vertical
+              limit: 2
+              label: Call-to-Action
+              fields:
+                .link:
+                  type: text
+                  label: Link
+                .text:
+                  type: text
+                  label: Text
+                .class:
+                  type: text
+                  label: Class(es)
+
+            header.features:
+              name: features
+              type: list
+              style: vertical
+              label: Features
+              limit: 4
+              fields:
+                .icon:
+                  type: text
+                  label: Icon
+                .title:
+                  type: text
+                  label: Title
+                .description:
+                  type: text
+                  label: Description
+
+        options:
+          type: false
+        advanced:
+          type: false

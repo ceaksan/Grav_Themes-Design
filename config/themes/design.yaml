@@ -1,0 +1,40 @@
+enabled: true
+default_lang: en
+dropdown:
+  enabled: true
+simplesearch:
+  route: /search
+  template: simplesearch_results
+  filters:
+    category: blog
+  filter_combinator: and
+logo_url: null
+cta_text: 'Click Here'
+cta_url: '#'
+heading: null
+facebook: 'https://www.facebook.com'
+twitter: 'https://www.twitter.com'
+youtube: 'https://www.youtube.com'
+instagram: 'https://www.instagram.com'
+linkedin: null
+dribbble: null
+links_heading: Links
+links:
+  -
+    link_text: 'Link 1'
+    link_url: '#'
+  -
+    link_text: 'Link 2'
+    link_url: '#'
+  -
+    link_text: 'Link 3'
+    link_url: '#'
+name: 'Design Co.'
+location: 'Lorem ipsum dolor sit amet.'
+credit: "<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->\nCopyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with 💙 by <a href=\"https://colorlib.com\" target=\"_blank\">Colorlib</a>\n<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->"
+logo_src:
+  user/themes/design/assets/images/logo.jpg:
+    name: logo.jpg
+    type: image/jpeg
+    size: 22592
+    path: user/themes/design/assets/images/logo.jpg

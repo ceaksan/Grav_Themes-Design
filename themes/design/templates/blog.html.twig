@@ -1,0 +1,65 @@
+{% extends 'partials/base.html.twig' %}
+
+  {% block head_css %}
+		{{ parent() }}
+  {% endblock %}
+
+  {% block body %}
+    {% block body_content %}
+    <div class="blog-entries-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 section-title text-center mb-5">
+            <h2 class="heading" data-aos="fade-up" data-aos-delay="100">{{ page.title }}</h2>
+            <p>{{ page.content|raw }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+        {%
+          set collection = page.collection({
+            items: {
+              '@page.children': '/blog'
+            },
+            'order': {
+              'by': 'date',
+              'dir': 'desc'
+            },
+            'published': true,
+            'visible': true
+          })
+        %}
+        {% for p in collection|slice(0,2) %}
+          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="0">
+            <div class="post-entry">
+              {% if p.media.images %}
+                {# <a href="{{ p.url|e }}"><img src="{{ p.media.images|first.url }}" alt="{{ p.title|e }}" /></a> #}
+                <a href="{{ p.url|e }}">{{ p.media.images|first.display('thumbnail').cropZoom(500,200).html()|raw }}</a>
+              {% endif %}
+              <time class="date" datetime="{{ p.date|date("d-m-Y") }}">{{ p.date|date("d-m-Y") }}</time>
+              <h3><a href="{{ p.url|e }}">{{ p.title|e }}</a></h3>
+              <p>{{ p.summary()|raw }}</p>
+            </div>
+          </div>
+        {% endfor %}
+        {% for p in collection|slice(2,collection|length) %}
+          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3 mt-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="post-entry">
+              {% if p.media.images %}
+                {# <a href="{{ p.url|e }}"><img src="{{ p.media.images|first.url }}" alt="{{ p.title|e }}" /></a> #}
+                <a href="{{ p.url|e }}">{{ p.media.images|first.display('thumbnail').cropZoom(215,200).html()|raw }}</a>
+              {% endif %}
+              <time class="date" datetime="{{ p.date|date("d-m-Y") }}">{{ p.date|date("d-m-Y") }}</time>
+              <h3><a href="{{ p.url|e }}">{{ p.title|e }}</a></h3>
+              <p>{{ p.summary()|raw }}</p>
+            </div>
+          </div>
+        {% endfor %}
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+          {% include 'partials/pagination.html.twig' with { 'base_url':page.url, 'pagination': collection.params.pagination } %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  {% endblock %}

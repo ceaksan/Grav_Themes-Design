@@ -1,0 +1,32 @@
+title: Blog
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      active: 1
+      fields:
+        content:
+          fields:
+
+            content:
+              type: false
+            header.media_order:
+              type: false
+
+            header.heading:
+              type: text
+              label: Heading
+            header.count:
+              type: text
+              label: Maximum Post Count (max:5)
+            header.description:
+              type: text
+              label: Description
+
+        options:
+          type: false
+        advanced:
+          type: false

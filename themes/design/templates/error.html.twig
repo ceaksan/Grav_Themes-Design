@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+
+  {% block head_css %}
+		{{ parent() }}
+  {% endblock %}
+
+  {% block body %}
+    {% block body_content %}
+
+      {{ page.title }}
+      {{ page.content|raw }}
+
+    {% endblock %}
+  {% endblock %}

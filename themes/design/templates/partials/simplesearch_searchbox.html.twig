@@ -1,0 +1,29 @@
+{% set min_chars = config.get('plugins.simplesearch.min_query_length', 3) %}
+<div class="search-wrapper has-background-blue px-3 py-3 mb-5">
+    <form name="search" data-simplesearch-form>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input
+                    name="searchfield"
+                    class="search-input input"
+                    aria-label="search"
+                    type="text"
+                    {% if min_chars > 0 %} data-min="{{- min_chars -}}" {% endif %}
+                    required
+                    placeholder="{{"PLUGIN_SIMPLESEARCH.SEARCH_PLACEHOLDER"|t}}"
+                    value="{{ query|e }}"
+                    data-search-invalid="{{ "PLUGIN_SIMPLESEARCH.SEARCH_FIELD_MINIMUM_CHARACTERS"|t(min_chars)|raw }}"
+                    data-search-separator="{{ config.system.param_sep }}"
+                    data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route == '@self' ? '' : (config.plugins.simplesearch.route == '/' ? '' : config.plugins.simplesearch.route) }}/query"
+                />
+                <ion-icon class="icon is-small is-left" name="search-circle-outline"></ion-icon>    
+            </p>
+        </div>
+    </form>
+    {% if query %}
+        {% set count = search_results ? search_results.visible.count : 0 %}
+        <span class="tag is-small mt-3 has-background-blue-light has-text-blue-lighter">
+            <span class="mr-2 has-text-weight-bold">"{{ query }}"</span> {{ (langswitcher.current == 'tr') ? 'sorgusu ile ilgili' : 'Query' }} <span class="mx-2 has-text-weight-bold">{{ search_results.visible.count }}</span> {{ (langswitcher.current == 'tr') ? 'içerik' : 'Item' |pluralize(search_results.count) }}  {{ (langswitcher.current == 'tr') ? 'bulundu' : 'Found' }}.
+        </span>
+    {% endif %}
+</div>
