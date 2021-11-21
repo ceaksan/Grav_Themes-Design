@@ -18,7 +18,7 @@
         {% else %}{% set logo = null %}{% endif %}
         {% if logo %}
         <figure>
-          <img src="{{ home_url }}{{ logo|first.path }}" alt="{{ site.title }}" style="width: 150px;" />
+          <img src="{{ home_url }}/{{ logo|first.path }}" alt="{{ site.title }}" style="width: 150px;" />
         </figure>
         {% else %}
           {{ site.title }}
